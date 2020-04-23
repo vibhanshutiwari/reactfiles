@@ -1,37 +1,46 @@
 
 import React from 'react';
 
-// onClick functions //
-
-class Football extends React.Component {
-  shoot = () => {
-     alert('great shot !');
- }
-    render() {
-        return(
-    <div class="container">
-        <button class="btn btn-info" onClick={this.shoot}> click me </button>
-    </div>
-        );
+class Hellogeeks extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            inlogged: true
+        }
     }
-}
-
-// Passing value in Parameter //
-
-class Mainball extends React.Component {
-    takes = (a,b) => {
-       alert('first name -'+ ' ' + a +' ' + 'last name -' + b);
-   }
       render() {
-          return(
-      <div class="container">
-          <p>passing argument with onClick functions</p>
-          <button class="btn btn-info" onClick={() => this.takes('shubham','tiwari')}> Passing argument </button>
-      </div>
-          );
+      
+          // First method //
+  
+         // if(this.state.inlogged) {
+           //return   <div> Conditional rendering function</div>
+          //} else {
+             //return <div>function not working.</div>
+          //}
+          
+          // Second method
+  
+          //let message
+          //if(this.state.inlogged) {
+            //  message = <div> Conditional rendering function</div>
+          //} else {
+            //  message = <div>function not working.</div>
+          //}
+             //return <div>{message}</div>
+  
+          // Third method //
+  
+            //return this.state.inlogged ? <div> Conditional rendering function</div>
+             //: <div>function not working.</div>
+  
+            // Four method
+  
+             return this.state.inlogged && <div class="container bg-danger"> 
+             <p>if first condition is right then code works.</p>
+  
+             </div>
       }
   }
   
 
-
-export  {Football,Mainball};
+export default Hellogeeks;
