@@ -3,51 +3,76 @@ import './App.css';
 
 
 class App extends React.Component {
+
     render() {
         return(
             <div>
-             <Tables />
-             <Show />
+             
+             <ParentRef />
             </div>
         );
     }
 }
 
-  function Show() {
-   const styles = {
-       color: 'red',
-     };
+// Use the Refs function //
 
-    return (
-        <React.Fragment>
-          <h4 style = {styles} >FragmentDemo</h4>
-          <p>This describe the fragment demo Component.</p>
-          </React.Fragment>
+//class RefsDemo extends React.Component{
+  //  constructor(props) {
+   //     super(props)
+     //   this.inputRef = React.createRef()
+    //}
+     //componentDidMount() {
+       //  this.inputRef.current.focus();
+      //console.log(this.inputRef);
+     //}
+     
+     //clickHandler = () => {
+       //  alert(`${this.inputRef.current.value}`);
+     //}
+    
+    //render() {
+      //  return (
+        //    <div>
+          //    <input type="text" ref={this.inputRef} />
+            //  <button onClick={this.clickHandler}>Click</button>
+       //</div>
+        //)
+    //}
+//}
+
+// Passed the Value with help of Refs Forwarding //
+
+class ParentRef extends React.Component {
+    constructor(props) {
+        super(props)
+        this.otherRef = React.createRef();
+}
+ focusHandler = () => {
+     this.otherRef.current.focus();
+ }
+
+  render() {
+     return(
+         <div>
+        <ChilRef  ref={this.otherRef}/>
+        <button onClick={this.focusHandler}>Focus click</button>
+        </div>   
     );
-  }
+ }
+}
 
-  function Tables() {
-    return (
-      <table>
-        <tbody>
-          <tr>
-        <Column />
-          </tr>
-        </tbody>
-      </table>
-    );
-  }
-  
-  
-    function Column() {
-      return (
-      <>
-        <td>Name</td>
-        <td>Shubham</td>
-      </>
-      );
-    }
+// Child Ref //
 
+const ChilRef = React.forwardRef((props, ref) => {
+return (
+    <div>
+        <input type="text" ref={ref} />
+    </div>
+)
+});
+
+
+  
     export default App;
 
  
