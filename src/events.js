@@ -1,18 +1,33 @@
 
 import React from 'react';
-import ReactDOM from 'react-dom'
 
 
 
 
-function PortalDemo() {
-    return ReactDOM.createPortal(
-        <div>
-        <h3>Portals Demo </h3>
-        <p>How to use another portal..</p>
-        </div>,
-        document.getElementById('portal-root')
-    )
+const withCounter = WrappedComponent => {
+    class NewComponent extends React.Component {
+        constructor(props) {
+            super(props)
+            this.state = {
+                count: 0
+            }
+        }
+        incrementCount = () => {
+            this.setState(prevState => {
+                return { count: prevState.count + 1 };
+            })
+        }
+        render() {
+            return (
+         <WrappedComponent
+          count={this.state.count} 
+          incrementCount={this.incrementCount} />
+            );
+        }
+    }
+    return NewComponent
 }
 
-export default PortalDemo;
+export default withCounter;
+
+
