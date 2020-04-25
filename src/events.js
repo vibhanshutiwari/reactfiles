@@ -3,31 +3,20 @@ import React from 'react';
 
 
 
-
-const withCounter = WrappedComponent => {
     class NewComponent extends React.Component {
-        constructor(props) {
-            super(props)
-            this.state = {
-                count: 0
-            }
-        }
-        incrementCount = () => {
-            this.setState(prevState => {
-                return { count: prevState.count + 1 };
-            })
-        }
         render() {
+            const {count, changeValue} = this.props;
             return (
-         <WrappedComponent
-          count={this.state.count} 
-          incrementCount={this.incrementCount} />
+                <div>
+                    <button onClick={changeValue}> click {count} time</button>
+                    <p onMouseOver= {changeValue}>Hover{count} time</p>
+                </div>
             );
         }
     }
-    return NewComponent
-}
+    
 
-export default withCounter;
+
+export default NewComponent;
 
 

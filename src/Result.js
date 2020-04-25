@@ -1,19 +1,32 @@
 import React from 'react';
-import withCounter from './events';
 
 
-class ClickCounter extends React.Component {
-      render() {
-        const {count, incrementCount} =  this.props;
-          return (
-              <div>
-                  <button onClick={incrementCount}>click {count} time</button>
-              </div>
-          );
+class Counter extends React.Component {
+  constructor(props) {
+      super(props)
+      this.state = {
+          count: 0
       }
-  }
-  
-  export default withCounter(ClickCounter);
-  
+}
+changeValue =() => {
+    this.setState(prevstate => {
+        return {count: prevstate.count +1 } 
+    });
+}
+    render() {
+        return(
+            <div>
+                {this.props.render(this.state.count, this.changeValue)};
+            </div>
+
+        );
+    }
+}
+
+export default Counter;
+
+
+
+
 
   
