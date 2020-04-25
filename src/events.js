@@ -1,20 +1,25 @@
 
 import React from 'react';
+import { UserConsume } from './Result';
 
 
 
-    class NewComponent extends React.Component {
-        render() {
-            const {count, changeValue} = this.props;
-            return (
-                <div>
-                    <button onClick={changeValue}> click {count} time</button>
-                    <p onMouseOver= {changeValue}>Hover{count} time</p>
-                </div>
-            );
-        }
+class NewComponent extends React.Component {
+    render() {
+
+        return (
+            <div>
+                <UserConsume>
+                    {username => {
+                        return  <div className="container"> Hello {username} </div>
+                    }}
+                </UserConsume>
+            </div>
+        );
     }
+}
     
+
 
 
 export default NewComponent;

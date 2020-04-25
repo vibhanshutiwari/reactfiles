@@ -1,29 +1,13 @@
 import React from 'react';
 
 
-class Counter extends React.Component {
-  constructor(props) {
-      super(props)
-      this.state = {
-          count: 0
-      }
-}
-changeValue =() => {
-    this.setState(prevstate => {
-        return {count: prevstate.count +1 } 
-    });
-}
-    render() {
-        return(
-            <div>
-                {this.props.render(this.state.count, this.changeValue)};
-            </div>
+const Usercontext = React.createContext()
 
-        );
-    }
-}
+const UserProvider = Usercontext.Provider
+const UserConsume = Usercontext.Consumer
 
-export default Counter;
+export {UserProvider, UserConsume};
+
 
 
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 
-import NewComponent from './events';
-import Counter from './Result';
 
+import { UserProvider } from './Result';
+import NewComponent from './events';
 
 
 
@@ -11,9 +11,9 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <Counter  render= {(count, changeValue) =>(
-               <NewComponent count = {count} changeValue = {changeValue} />
-                )}/>
+                <UserProvider value='Chemistry'>
+             <NewComponent/>
+                </UserProvider>
             </div>
         );
     }
