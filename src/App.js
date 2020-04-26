@@ -1,19 +1,23 @@
 import React from 'react';
 import './App.css';
+import Main from './Result';
 
 
-import { UserProvider } from './Result';
-import NewComponent from './events';
 
+export const UserContext = React.createContext()
+export const ChannelContext = React.createContext()
 
 
 class App extends React.Component {
     render() {
         return (
             <div>
-                <UserProvider value='Chemistry'>
-             <NewComponent/>
-                </UserProvider>
+                <UserContext.Provider value={'shubham'}>
+                    <ChannelContext.Provider value={'tiwari'}>
+                        <Main />
+                    </ChannelContext.Provider>
+                </UserContext.Provider>
+
             </div>
         );
     }

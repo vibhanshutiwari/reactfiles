@@ -1,29 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
+import { UserContext, ChannelContext } from './App';
 
 
 
+function Main () {
 
-
-function HookMouse() {
-  const [count, setCount] = useState(0);
-
-  const countTime = () => {
-    setCount(preveCount => preveCount + 1);
-  }
-
-  useEffect(() => {
-    const Interval = setInterval(countTime, 1000);
-
-    return () => {
-      clearInterval(Interval);
-    }
-  }, []);
+  const user = useContext(UserContext)
+   const channel = useContext(ChannelContext)
 
   return (
-    <div className="container">
-      {count}
+    <div>
+      {user} -- {channel}
     </div>
   );
 }
 
-export default HookMouse;
+export default Main;
