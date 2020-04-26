@@ -1,27 +1,20 @@
 
-import React from 'react';
-import { UserConsume } from './Result';
+import React, {useState} from 'react';
+import HookMouse from './Result';
 
 
 
-class NewComponent extends React.Component {
-    render() {
+function CleanUp () {
+   const [display, setdisplay] = useState(true);
 
-        return (
-            <div>
-                <UserConsume>
-                    {username => {
-                        return  <div className="container"> Hello {username} </div>
-                    }}
-                </UserConsume>
-            </div>
-        );
-    }
+    return (
+        <div>
+            <button onClick={() => setdisplay(!display)}>Toggle Display</button>
+            {display && <HookMouse />}
+        </div>
+    );
 }
-    
 
-
-
-export default NewComponent;
+export default CleanUp; 
 
 
