@@ -1,65 +1,71 @@
 import React, { useState } from 'react';
 
 
+// Hook function //
 
-//function HookCounter() {
-//const [count, setCount] = useState(0)
-//return (
-//  <div>
-//  <button onClick={() => setCount(count + 1)}>Click me {count}</button>
-//    </div>
-//  );
-//} 
-
+function HookCounter() {
+    const [count, setCount] = useState(0)
+    return (
+        <div>
+            <button onClick={() => setCount(count + 1)}>Click me {count}</button>
+        </div>
+    );
+}
 
 //export default HookCounter;
 
 
-// function HookOther() {
-// const initialCount = 0;
-// const [count, setCount] = useState(initialCount);
+// Increment random Number //
 
-// const incrementValue = () => {
-//    for(let i = 0; i <=5; i++ ) {
-//      setCount(prevCount => prevCount + 1);
-// }
-// }
-// return (
-//   <div className="container">
-//     <button onClick={() => setCount(prevCount => prevCount.count + 1)}>Click me {count}</button>
-//   <button onClick= {incrementValue} >New click</button>
-// </div>
-// );
-// }
+function HookOther() {
+    const initialCount = 0;
+    const [count, setCount] = useState(initialCount);
+
+    const incrementValue = () => {
+        for (let i = 0; i <= 5; i++) {
+            setCount(prevCount => prevCount + 1);
+        }
+    }
+    return (
+        <div className="container">
+            <button onClick={() => setCount(prevCount => prevCount.count + 1)}>Click me {count}</button>
+            <button onClick={incrementValue} >New click</button>
+        </div>
+    );
+}
 
 // export default HookOther;
 
 
-// function StateHooks() {
+// Hook Object //
 
-// const [name, setname] = useState({ firstname: '', lastname: '', village: '' })
+function StateHooks() {
 
-//    return (
-//      <div className="container">
-//        <form>
-//          <p>firstname is -- {name.firstname} </p>
-//        <input type="text" value={name.firstname}
-//          onChange={e => setname({ ...name, firstname: e.target.value })} />
+    const [name, setname] = useState({ firstname: '', lastname: '', village: '' })
 
-//    <p>lastname is -- {name.lastname} </p>
-//  <input type="text" value={setname.lastname}
-//    onChange={e => setname({ ...name, lastname: e.target.value })} />
+    return (
+        <div className="container">
+            <form>
+                <p>firstname is -- {name.firstname} </p>
+                <input type="text" value={name.firstname}
+                    onChange={e => setname({ ...name, firstname: e.target.value })} />
 
-// <p>Village -- {name.village}</p>
-// <input type="text" value={name.village}
-//   onChange={e => setname({ ...name, village: e.target.value })} />
-// </form>
-// </div>
-// );
-// }
+                <p>lastname is -- {name.lastname} </p>
+                <input type="text" value={setname.lastname}
+                    onChange={e => setname({ ...name, lastname: e.target.value })} />
 
-// export default StateHooks;
+                <p>Village -- {name.village}</p>
+                <input type="text" value={name.village}
+                    onChange={e => setname({ ...name, village: e.target.value })} />
+            </form>
+        </div>
+    );
+}
 
+//export default StateHooks;
+
+
+// Hook Array //
 
 function ArrayHooks() {
     const [iteam, setIteam] = useState([]);
@@ -80,7 +86,7 @@ function ArrayHooks() {
                         <li>{value.id} {value.Name} {value.lived} </li>
                     )
                 }
-           </ul>
+            </ul>
         </div>
     );
 }
