@@ -1,20 +1,26 @@
 
-import React, {useState} from 'react';
-import HookMouse from './Result';
+import React, { useState } from 'react';
 
+function CallBacks() {
+    const [age, setAge] = useState(20);
+    const [salary, setSalary] = useState(20000);
 
+  const ageHandler = () => {
+        setAge(age + 1);
+    }
 
-function CleanUp () {
-   const [display, setdisplay] = useState(true);
+   const salaryHandler = () => {
+        setSalary(salary + 2000);
+    }
 
     return (
         <div>
-            <button onClick={() => setdisplay(!display)}>Toggle Display</button>
-            {display && <HookMouse />}
+            Age: {age}
+            <button onClick={ageHandler}>Increment Age</button>
+            Salary: {salary}
+            <button onClick={salaryHandler}>Increment Salary</button>
         </div>
     );
 }
 
-export default CleanUp; 
-
-
+export default CallBacks;
