@@ -1,5 +1,7 @@
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
+
+// Callback with useState //
 
 function CallBacks() {
     const [age, setAge] = useState(20);
@@ -13,12 +15,17 @@ function CallBacks() {
         setSalary(salary + 2000);
     }
 
+const isEven = useMemo(() => {
+    let i = 0;
+    while( i < 200000) i++
+    return age % 2 === 0
+  }, [age]);
+
     return (
-        <div>
-            Age: {age}
-            <button onClick={ageHandler}>Increment Age</button>
-            Salary: {salary}
-            <button onClick={salaryHandler}>Increment Salary</button>
+        <div className="container">
+            <span> Show Even and Odd .. {isEven ? 'even' : 'odd'}</span>
+            <button onClick={ageHandler}>Increment Age {age}</button>
+            <button onClick={salaryHandler}>Increment Salary {salary}</button>
         </div>
     );
 }
