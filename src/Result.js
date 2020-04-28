@@ -1,40 +1,29 @@
-import React, { useReducer } from 'react';
 
-const initialState = 0;
-const reducer = (state, action) => {
-  switch (action) {
-    case 'increment':
-      return state + 1
-    case 'decrement':
-      return state - 1
-    case 'Reset':
-      return initialState
-    default:
-      return state
-  };
+ import React from 'react';
+ import CounterOne from './events';
+
+
+
+//function useDocument (count) {
+   // useEffect(()=> {
+    //    document.title = `Count ${count}`
+  //  }, [count]);
+//}
+
+//export default useDocument;
+
+
+function ReturnValue () {
+ const  [add , incrementValue, decrementValue, clearValue] =  CounterOne();
+
+    return ( 
+        <div className="container">
+        <h3>Count = {add} </h3>
+        <button onClick={incrementValue}>increment</button>
+        <button onClick={decrementValue}>decrement</button>
+       <button onClick={clearValue}>clear</button>
+       </div>
+    );   
 }
 
-function Main() {
-  const [count, dispatch] = useReducer(reducer, initialState);
-  const [countOne, dispatchOne] = useReducer(reducer, initialState);
-  return (
-    <div className="container">
-      Count : {count}
-      <button onClick={() => dispatch('increment')}>Increment</button>
-      <button onClick={() => dispatch('decrement')}>Decrement</button>
-      <button onClick={() => dispatch('Reset')}>Reset</button>
-
-      <div className="container">
-        Countone : {countOne}
-        <button onClick={() => dispatchOne('increment')}>Increment</button>
-        <button onClick={() => dispatchOne('decrement')}>Decrement</button>
-        <button onClick={() => dispatchOne('Reset')}>Reset</button>
-      </div>
-    </div>
-  );
-}
-
-export default Main;
-
-
-
+export default ReturnValue;

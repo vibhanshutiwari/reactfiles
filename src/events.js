@@ -1,42 +1,36 @@
-
-import React, { useEffect, useRef, useState } from 'react';
-
-
-//function UseRefs() {
-  //  const inputRef = useRef(null);
-
-    //useEffect(() => {
-      //  inputRef.current.focus();
-    //}, []);
-
-    //return (
-      //  <input type="text" ref={inputRef} />
-  //  );
-//}
+import  {useState} from 'react';
+//import useDocument from './Result';
 
 
-//export default UseRefs;
+//function Counter() {
+  //  const [count, setCount] = useState(0);
 
-function HookTimer () {
-    const [timer, setTimer] = useState(0);
-      const InteralHook = useRef();
+    //useDocument(count) 
+   // return (
+   // <button onClick={() => setCount(count + 1)}>click {count}</button>
+    //);
+// }
 
-   useEffect(()=>{
-    InteralHook.current = setInterval(() => {
-     setTimer(prevTimer => prevTimer + 1 );  
-  }, 1000);
-  return () => {
-      clearInterval(InteralHook.current);
-  };
-   }, []);
-
-    return (
-        <div>
-        CountTimer-- {timer}
-        <button onClick={() => clearInterval(InteralHook.current)}>click to stop function</button>
-        </div>
-    );
-}
+ //export default Counter;
 
 
-export default HookTimer;
+ function CounterOne () {
+    const [add , setAdd] = useState(0);
+    
+    const incrementValue = () => {
+        setAdd(prevAdd => prevAdd + 1);
+    }
+    
+    const decrementValue = () => {
+        setAdd(prevAdd => prevAdd - 1);
+    }
+    
+    const clearValue = () => {
+        setAdd(0);
+    }
+    
+   return [add , incrementValue, decrementValue, clearValue]
+
+ }
+
+ export default CounterOne;
